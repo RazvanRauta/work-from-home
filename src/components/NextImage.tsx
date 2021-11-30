@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import Image, { ImageProps } from 'next/image';
+import type { ImageProps } from 'next/image';
+import Image from 'next/image';
 import * as React from 'react';
 
 type NextImageProps = {
@@ -39,9 +40,9 @@ export default function NextImage({
     >
       <Image
         className={clsx(
-          imgClassName,
           // text-gray to hide alt text
-          'text-gray-400 bg-gray-400 ',
+          'bg-gray-400 text-gray-400 ',
+          imgClassName,
           status === 'loading' && clsx('animate-pulse', blurClassName)
         )}
         src={src}

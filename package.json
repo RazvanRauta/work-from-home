@@ -1,7 +1,12 @@
 {
-  "name": "ts-nextjs-tailwind-starter",
+  "name": "work-from-home",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "razvan@rrazvan.dev",
+    "name": "RRazvan",
+    "url": "https://rrazvan.dev"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

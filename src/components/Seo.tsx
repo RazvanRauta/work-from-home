@@ -3,14 +3,13 @@ import { useRouter } from 'next/router';
 
 import { openGraph } from '@/lib/helper';
 
-// !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
+  title: 'Work From Home',
+  siteName: 'Work From Home',
   description:
-    'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
-  url: 'https://tsnext-tw.thcl.dev',
-  image: 'https://theodorusclarence.com/favicon/large-og.jpg',
+    'A fun Bingo game made with Next Js and React.',
+  url: 'https://work-from-home.rrazvan.dev/',
+  image: '',
   type: 'website',
   robots: 'follow, index',
 };
@@ -68,7 +67,7 @@ export default function Seo(props: SeoProps) {
           <meta
             name='author'
             property='article:author'
-            content='Theodorus Clarence'
+            content='RRazvan'
           />
         </>
       )}
@@ -94,8 +93,7 @@ type Favicons = {
   type?: string;
 };
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://www.favicon-generator.org/
-// then replace the whole /public/favicon folder
+
 const favicons: Array<Favicons> = [
   {
     rel: 'apple-touch-icon',
