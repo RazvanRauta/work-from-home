@@ -6,8 +6,7 @@ import { openGraph } from '@/lib/helper';
 const defaultMeta = {
   title: 'Work From Home',
   siteName: 'Work From Home',
-  description:
-    'A fun Bingo game made with Next Js and React.',
+  description: 'A fun Bingo game made with Next Js and React.',
   url: 'https://work-from-home.rrazvan.dev/',
   image: '',
   type: 'website',
@@ -64,11 +63,7 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          <meta
-            name='author'
-            property='article:author'
-            content='RRazvan'
-          />
+          <meta name='author' property='article:author' content='RRazvan' />
         </>
       )}
 
@@ -92,7 +87,6 @@ type Favicons = {
   sizes?: string;
   type?: string;
 };
-
 
 const favicons: Array<Favicons> = [
   {

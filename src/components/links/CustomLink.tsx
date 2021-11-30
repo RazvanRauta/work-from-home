@@ -12,9 +12,9 @@ export default function CustomLink({
     <UnstyledLink
       {...rest}
       className={clsx(
-        'animated-underline custom-link font-bold inline-flex items-center',
+        'animated-underline custom-link inline-flex items-center font-bold',
         'focus-visible:ring focus:outline-none ring-primary-400/70',
-        'border-b border-dark border-dotted hover:border-black/0',
+        'border-dark hover:border-black/0 border-b border-dotted',
         className
       )}
     >

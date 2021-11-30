@@ -12,7 +12,7 @@ export default function NotFoundPage(): ReactElement {
 
       <main>
         <section className='bg-dark'>
-          <div className='flex flex-col items-center justify-center layout min-h-screen text-center text-white'>
+          <div className='layout flex flex-col justify-center items-center min-h-screen text-center text-white'>
             <RiAlarmWarningFill
               size={60}
               className='animate-flicker drop-shadow-glow text-yellow-300'

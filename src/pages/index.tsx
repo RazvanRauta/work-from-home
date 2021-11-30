@@ -8,7 +8,7 @@ export default function HomePage(): ReactElement {
     <Layout>
       <Seo />
       <main>
-        <section className='bg-dark min-h-screen min-w-full'>Hello</section>
+        <section className='bg-dark min-w-full min-h-screen'>Hello</section>
       </main>
     </Layout>
   );
