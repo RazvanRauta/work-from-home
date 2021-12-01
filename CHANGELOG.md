@@ -4,11 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.2](https://github.com/RazvanRauta/work-from-home/compare/v1.0.1...v1.0.2) (2021-12-01)
 
-
 ### Bug Fixes
 
-* changelog format ([e64e588](https://github.com/RazvanRauta/work-from-home/commit/e64e588bfd13980071a29a0ffe6ae3103c94a603))
-* fixed styles on Chrome ([fa7ab05](https://github.com/RazvanRauta/work-from-home/commit/fa7ab055dec4bf29632c400af5a6b596b5cb5e1b))
+- changelog format ([e64e588](https://github.com/RazvanRauta/work-from-home/commit/e64e588bfd13980071a29a0ffe6ae3103c94a603))
+- fixed styles on Chrome ([fa7ab05](https://github.com/RazvanRauta/work-from-home/commit/fa7ab055dec4bf29632c400af5a6b596b5cb5e1b))
 
 ### [1.0.1](https://github.com/RazvanRauta/work-from-home/compare/v1.0.0...v1.0.1) (2021-12-01)
 

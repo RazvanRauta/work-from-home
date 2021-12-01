@@ -18,7 +18,7 @@ export default function HomePage(): ReactElement {
     <Layout>
       <Seo />
       <main className='blurry-gradient spacer min-w-full min-h-screen'>
-        <section className='flex relative flex-col justify-start items-center w-full h-full lg:justify-center'>
+        <section className='flex relative flex-col justify-start items-center pb-5 w-full h-full lg:justify-center'>
           <GameBoard />
         </section>
         <Waves />
