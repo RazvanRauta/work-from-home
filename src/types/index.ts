@@ -7,6 +7,14 @@
 export interface ITile {
   message: string;
   id: number;
+  isChecked?: boolean;
 }
 
 export type Tiles = ITile[];
+
+export type OpenGraphType = {
+  siteName: string;
+  description: string;
+  templateTitle?: string;
+  logo?: string;
+};
