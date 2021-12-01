@@ -21,7 +21,10 @@ export const shuffleTiles = (arr: Tiles): Tiles => {
     arr[randomIndex] = tempTile;
   }
 
-  return arr;
+  return arr.map((el) => {
+    el.isChecked = false;
+    return el;
+  });
 };
 
 export const generatePossibleWinningCombinations = (

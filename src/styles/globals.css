@@ -109,4 +109,12 @@
   .blurry-gradient {
     background-image: url('/images/blurry-gradient.svg');
   }
+
+  .free-tile {
+    background-image: url('/images/free-tile.svg');
+    aspect-ratio: 960/300;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }

@@ -34,8 +34,9 @@ export default function Tile({
     <div
       className={clsx(
         'bg-[#f0f8fd] flex justify-center justify-self-center items-center p-1 w-full h-16 rounded-2xl transition duration-150 cursor-pointer lg:h-20',
-        isFreeTile && 'disabled cursor-not-allowed',
-        isChecked && 'bg-red-400'
+        isFreeTile &&
+          'disabled cursor-not-allowed free-tile bg-transparent bg-contain',
+        isChecked && !isFreeTile && 'bg-red-400'
       )}
       onClick={handleOnClick}
     >
