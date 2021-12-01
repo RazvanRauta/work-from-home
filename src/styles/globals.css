@@ -99,20 +99,25 @@
   }
 
   .spacer {
-    aspect-ratio: 960/300;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    height: 100%;
   }
 
   .blurry-gradient {
-    background-image: url('/images/blurry-gradient.svg');
+    background-image: url('/images/blurry-gradient.svg'),
+      linear-gradient(
+        64deg,
+        rgba(74, 162, 138, 1) 0%,
+        rgba(176, 179, 124, 1) 85%,
+        rgba(186, 182, 122, 1) 100%
+      );
   }
 
   .free-tile {
     background-image: url('/images/free-tile.svg');
-    aspect-ratio: 960/300;
     width: 100%;
     background-repeat: no-repeat;
     background-position: center;

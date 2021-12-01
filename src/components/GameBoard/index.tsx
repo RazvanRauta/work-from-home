@@ -83,7 +83,7 @@ export default function GameBoard(): ReactElement {
   };
 
   return (
-    <div className='bg-[#f0f8fd] h-[60vh] w-[90vw] flex relative z-10 flex-col justify-between mx-auto mt-28 max-w-sm rounded-lg lg:h-[650px] lg:mt-[unset] lg:max-w-2xl'>
+    <div className='bg-[#f0f8fd] h-[60vh] w-[90vw] flex relative z-10 flex-col justify-between mx-auto mt-28 max-w-sm rounded-lg lg:h-[650px] lg:max-w-2xl'>
       <GirlWithLaptop />
       <div className='bg-[#abdddc] grid grid-cols-5 grid-rows-5 gap-x-2 gap-y-2 justify-items-center p-2 rounded-lg'>
         {shuffledTiles.map((tile) => (
