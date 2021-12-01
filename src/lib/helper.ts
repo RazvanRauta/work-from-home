@@ -86,7 +86,7 @@ export function openGraph({
   siteName,
   templateTitle,
   description,
-  logo = 'https://og.thcl.dev/images/logo.jpg',
+  logo = 'https://work-from-home.rrazvan.dev/favicon/ms-icon-310x310.png',
 }: OpenGraphType): string {
   const ogLogo = encodeURIComponent(logo);
   const ogSiteName = encodeURIComponent(siteName.trim());
