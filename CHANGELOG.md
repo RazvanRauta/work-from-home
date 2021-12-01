@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/RazvanRauta/work-from-home/compare/v1.0.0...v1.0.1) (2021-12-01)
+
+
+### Bug Fixes
+
+* prettier errors ([6a81958](https://github.com/RazvanRauta/work-from-home/commit/6a819588f937aa9bd0e429a2fc6fd666c31f11a3))
+
 ## [1.0.0](https://github.com/RazvanRauta/work-from-home/compare/v0.1.3...v1.0.0) (2021-12-01)
 
 ### Features
