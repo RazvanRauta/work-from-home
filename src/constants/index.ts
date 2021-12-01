@@ -23,8 +23,11 @@ export const tiles: Tiles = [
   { message: '"can you see my screen"', id: 20 },
   { message: 'wears formal top', id: 21 },
   { message: 'talked to yourself', id: 22 },
-  { message: "heard someones's kid in the background", id: 23 },
+  {
+    message: "heard someones's kid in the background",
+    id: 23,
+  },
   { message: 'working on the desk', id: 24 },
 ];
 
-export const freeTile: ITile = { message: 'free', id: 25 };
+export const freeTile: ITile = { message: 'free', id: 25, isChecked: true };

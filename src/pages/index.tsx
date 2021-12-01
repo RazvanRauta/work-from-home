@@ -4,12 +4,14 @@
  *  Time: 10:50
  */
 
+import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
 
 import GameBoard from '@/components/GameBoard';
 import Layout from '@/components/Layout';
 import Seo from '@/components/Seo';
-import Waves from '@/components/Waves';
+
+const Waves = dynamic(() => import('@/components/Waves'));
 
 export default function HomePage(): ReactElement {
   return (
