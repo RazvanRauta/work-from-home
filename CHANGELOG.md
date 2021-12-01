@@ -4,10 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.3](https://github.com/RazvanRauta/work-from-home/compare/v0.1.2...v0.1.3) (2021-11-30)
 
-
 ### Bug Fixes
 
-* prettier errors ([1451f7c](https://github.com/RazvanRauta/work-from-home/commit/1451f7cce6d8bf155065ac25d5cc63b553a515b8))
+- prettier errors ([1451f7c](https://github.com/RazvanRauta/work-from-home/commit/1451f7cce6d8bf155065ac25d5cc63b553a515b8))
 
 ### [0.1.2](https://github.com/RazvanRauta/work-from-home/compare/v0.1.1...v0.1.2) (2021-11-30)
 
