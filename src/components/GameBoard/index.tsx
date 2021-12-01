@@ -19,8 +19,6 @@ import type { Tiles } from '@/types';
 
 const WinningDialog = dynamic(() => import('../WinningDialog'), {
   ssr: false,
-  // eslint-disable-next-line react/display-name
-  loading: () => <Spinner />,
 });
 
 const GirlWithLaptop = dynamic(() => import('../GirlWithLaptop'), {
