@@ -1,3 +1,5 @@
+import type { ITile, Tiles } from '@/types';
+
 type OpenGraphType = {
   siteName: string;
   description: string;
@@ -22,3 +24,9 @@ export function openGraph({
     ogTemplateTitle ? `&templateTitle=${ogTemplateTitle}` : ''
   }`;
 }
+
+export const insertFreeTile = (arr: Tiles, index: number, freeTile: ITile) => [
+  ...arr.slice(0, index),
+  freeTile,
+  ...arr.slice(index),
+];
