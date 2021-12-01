@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ImageProps } from 'next/image';
 import Image from 'next/image';
-import * as React from 'react';
+import { useState } from 'react';
 
 type NextImageProps = {
   useSkeleton?: boolean;
@@ -28,9 +28,7 @@ export default function NextImage({
   blurClassName,
   ...rest
 }: NextImageProps) {
-  const [status, setStatus] = React.useState(
-    useSkeleton ? 'loading' : 'complete'
-  );
+  const [status, setStatus] = useState(useSkeleton ? 'loading' : 'complete');
   const widthIsSet = className?.includes('w-') ?? false;
 
   return (
