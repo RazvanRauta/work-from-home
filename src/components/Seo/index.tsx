@@ -1,3 +1,9 @@
+/**
+ *  @author: Razvan Rauta
+ *  Date: Dec 01 2021
+ *  Time: 10:50
+ */
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
