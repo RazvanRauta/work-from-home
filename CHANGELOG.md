@@ -4,22 +4,20 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.0.0](https://github.com/RazvanRauta/work-from-home/compare/v0.1.3...v1.0.0) (2021-12-01)
 
-
 ### Features
 
-* **game board:** added game board component with styles ([f6897ce](https://github.com/RazvanRauta/work-from-home/commit/f6897ce4c4e0b8e5e94bd9949bed3d07636d543e))
-* **game board:** added ilustration for board header ([16be5d8](https://github.com/RazvanRauta/work-from-home/commit/16be5d8f7a8a0b0c9449135f6a63b1e29bf5f838))
-* **game board:** added tile component ([4541181](https://github.com/RazvanRauta/work-from-home/commit/4541181e06e41f3f804cbbebf3376cd51c0be09e))
-* **game board:** added tiles messages ([e2335dc](https://github.com/RazvanRauta/work-from-home/commit/e2335dceabf4ddbdd6b348cd4898b56dbeff2397))
-* **game board:** added winning dialog ([0bcb6c5](https://github.com/RazvanRauta/work-from-home/commit/0bcb6c5c486173bb8c9bf7b3bf1138845eb81b7e))
-* **game board:** generate winning combinations ([e41990b](https://github.com/RazvanRauta/work-from-home/commit/e41990b810e05a7167faf8514071d795734dde0d))
-* **game board:** implemented game logic ([769d236](https://github.com/RazvanRauta/work-from-home/commit/769d236e7e25465ce26c964a4b798078e738a19d))
-* **game board:** refactored free tile ([2427390](https://github.com/RazvanRauta/work-from-home/commit/24273908cf58c90746203d1bc76f4dfed2dabdb8))
-* **landing page:** added the page background ([3377178](https://github.com/RazvanRauta/work-from-home/commit/33771780e324c9819b61b323756dedabeab6a343))
-* **waves:** added waves component ([72f81c6](https://github.com/RazvanRauta/work-from-home/commit/72f81c67b4cf78281f3c03107dabb4378eb71517))
-
+- **game board:** added game board component with styles ([f6897ce](https://github.com/RazvanRauta/work-from-home/commit/f6897ce4c4e0b8e5e94bd9949bed3d07636d543e))
+- **game board:** added ilustration for board header ([16be5d8](https://github.com/RazvanRauta/work-from-home/commit/16be5d8f7a8a0b0c9449135f6a63b1e29bf5f838))
+- **game board:** added tile component ([4541181](https://github.com/RazvanRauta/work-from-home/commit/4541181e06e41f3f804cbbebf3376cd51c0be09e))
+- **game board:** added tiles messages ([e2335dc](https://github.com/RazvanRauta/work-from-home/commit/e2335dceabf4ddbdd6b348cd4898b56dbeff2397))
+- **game board:** added winning dialog ([0bcb6c5](https://github.com/RazvanRauta/work-from-home/commit/0bcb6c5c486173bb8c9bf7b3bf1138845eb81b7e))
+- **game board:** generate winning combinations ([e41990b](https://github.com/RazvanRauta/work-from-home/commit/e41990b810e05a7167faf8514071d795734dde0d))
+- **game board:** implemented game logic ([769d236](https://github.com/RazvanRauta/work-from-home/commit/769d236e7e25465ce26c964a4b798078e738a19d))
+- **game board:** refactored free tile ([2427390](https://github.com/RazvanRauta/work-from-home/commit/24273908cf58c90746203d1bc76f4dfed2dabdb8))
+- **landing page:** added the page background ([3377178](https://github.com/RazvanRauta/work-from-home/commit/33771780e324c9819b61b323756dedabeab6a343))
+- **waves:** added waves component ([72f81c6](https://github.com/RazvanRauta/work-from-home/commit/72f81c67b4cf78281f3c03107dabb4378eb71517))
 
 ### Bug Fixes
 
-* changelog format ([04012db](https://github.com/RazvanRauta/work-from-home/commit/04012dbb47747e53ef473dc79dce857e29fd0c67))
-* fixed styles ([4705dda](https://github.com/RazvanRauta/work-from-home/commit/4705dda65f1d53049defc6d8664f6079c77e986d))
+- changelog format ([04012db](https://github.com/RazvanRauta/work-from-home/commit/04012dbb47747e53ef473dc79dce857e29fd0c67))
+- fixed styles ([4705dda](https://github.com/RazvanRauta/work-from-home/commit/4705dda65f1d53049defc6d8664f6079c77e986d))
