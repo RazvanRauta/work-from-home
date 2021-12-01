@@ -9,7 +9,12 @@ import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
 import { Fragment } from 'react';
 
-const BingoSticker = dynamic(() => import('../BingoSticker'));
+import Spinner from '../Spinner';
+
+const BingoSticker = dynamic(() => import('../BingoSticker'), {
+  // eslint-disable-next-line react/display-name
+  loading: () => <Spinner />,
+});
 
 interface WinningDialogProps {
   handleClose: () => void;
@@ -27,7 +32,7 @@ export default function WinningDialog({
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         as='div'
-        className='overflow-y-auto fixed inset-0 z-10'
+        className='min-h-[300px] overflow-y-auto fixed inset-0 z-10'
         onClose={closeModal}
       >
         <div className='px-4 min-h-screen text-center'>
@@ -59,7 +64,7 @@ export default function WinningDialog({
             leaveFrom='opacity-100 scale-100'
             leaveTo='opacity-0 scale-95'
           >
-            <div className='inline-block overflow-hidden p-6 my-8 w-full max-w-md text-left align-middle bg-white rounded-2xl shadow-xl transition-all transform'>
+            <div className='min-h-[300px] inline-block overflow-hidden p-6 my-8 w-full max-w-md text-left align-middle bg-white rounded-2xl shadow-xl transition-all transform'>
               <BingoSticker />
               <div className='relative mt-4 h-6'>
                 <button
