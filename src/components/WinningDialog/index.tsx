@@ -18,11 +18,13 @@ const BingoSticker = dynamic(() => import('../BingoSticker'), {
 
 interface WinningDialogProps {
   handleClose: () => void;
+  handleGameReset: () => void;
   isOpen: boolean;
 }
 
 export default function WinningDialog({
   handleClose,
+  handleGameReset,
   isOpen,
 }: WinningDialogProps): ReactElement {
   const closeModal = () => {
@@ -67,6 +69,13 @@ export default function WinningDialog({
             <div className='min-h-[300px] inline-block overflow-hidden p-6 my-8 w-full max-w-md text-left align-middle bg-white rounded-2xl shadow-xl transition-all transform'>
               <BingoSticker />
               <div className='relative mt-4 h-6'>
+                <button
+                  type='button'
+                  className='focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500 focus:outline-none hover:bg-red-200 inline-flex absolute top-0 left-0 z-10 justify-center px-4 py-2 text-sm font-medium text-red-900 bg-red-100 rounded-md border border-transparent'
+                  onClick={handleGameReset}
+                >
+                  ResetGame
+                </button>
                 <button
                   type='button'
                   className='focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus:outline-none hover:bg-blue-200 inline-flex absolute top-0 right-0 z-10 justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 rounded-md border border-transparent'

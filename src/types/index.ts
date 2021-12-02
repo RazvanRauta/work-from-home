@@ -8,6 +8,7 @@ export interface ITile {
   message: string;
   id: number;
   isChecked?: boolean;
+  isPreviousWin?: boolean;
 }
 
 export type Tiles = ITile[];

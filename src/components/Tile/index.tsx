@@ -14,6 +14,7 @@ interface TileProps {
   id: number;
   message: string;
   isChecked?: boolean;
+  isPreviousWin?: boolean;
   handleChecked: (id: number, value: boolean) => void;
 }
 
@@ -22,6 +23,7 @@ export default function Tile({
   message,
   isChecked,
   handleChecked,
+  isPreviousWin,
 }: TileProps): ReactElement {
   const isFreeTile = id === freeTile.id;
   const handleOnClick = () => {
@@ -36,7 +38,8 @@ export default function Tile({
         'bg-[#f0f8fd] flex justify-center justify-self-center items-center p-1 w-full h-16 rounded-2xl transition duration-150 cursor-pointer lg:h-20',
         isFreeTile &&
           'disabled cursor-not-allowed free-tile bg-transparent bg-contain',
-        isChecked && !isFreeTile && 'bg-red-400'
+        isChecked && !isFreeTile && 'bg-red-400',
+        isPreviousWin && isChecked && !isFreeTile && 'bg-green-400'
       )}
       onClick={handleOnClick}
     >
