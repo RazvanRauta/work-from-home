@@ -23,8 +23,38 @@ export const shuffleTiles = (arr: Tiles): Tiles => {
 
   return arr.map((el) => {
     el.isChecked = false;
+    el.isPreviousWin = false;
     return el;
   });
+};
+
+export const updatePreviousWinsAndSelectedTiles = (
+  previousWins: Array<number[]>,
+  updatedTile: ITile,
+  playerSelectedTiles: number[]
+) => {
+  let updatePreviousWins = [];
+  let updatedPlayerSelectedTiles = [...playerSelectedTiles];
+  updatePreviousWins = previousWins
+    .map((win) => {
+      if (win.includes(updatedTile.id)) {
+        updatedPlayerSelectedTiles = Array.from(
+          new Set([...updatedPlayerSelectedTiles, ...win])
+        );
+        return [];
+      }
+      return win;
+    })
+    .filter((el) => el && el.length);
+
+  if (updatedPlayerSelectedTiles.indexOf(updatedTile.id) > -1) {
+    updatedPlayerSelectedTiles.splice(
+      updatedPlayerSelectedTiles.indexOf(updatedTile.id),
+      1
+    );
+  }
+
+  return { updatePreviousWins, updatedPlayerSelectedTiles };
 };
 
 export const generatePossibleWinningCombinations = (
@@ -78,7 +108,6 @@ export const generatePossibleWinningCombinations = (
     fourthRow,
     fifthRow,
   ];
-
   return allCombinations;
 };
 
