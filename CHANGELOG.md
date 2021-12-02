@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/RazvanRauta/work-from-home/compare/v1.0.2...v1.1.0) (2021-12-02)
+
+
+### Features
+
+* **multiple bingos:** multiple bingos ([17b4b07](https://github.com/RazvanRauta/work-from-home/commit/17b4b0729c8453603a6b0397ea9efa58b2009e36))
+
+
+### Bug Fixes
+
+* removed spinner from Dialog ([8dd2f4c](https://github.com/RazvanRauta/work-from-home/commit/8dd2f4c9b50f7b5c10005b4ae5c26a22bfa269b0))
+* styles on mobile ([121c185](https://github.com/RazvanRauta/work-from-home/commit/121c18551fb210c3f7684121fd731a264eee1b0e))
+* the OG image ([b3cdf91](https://github.com/RazvanRauta/work-from-home/commit/b3cdf917eb7a09f2c4b34c923f6b440eb63ba16c))
+
 ### [1.0.2](https://github.com/RazvanRauta/work-from-home/compare/v1.0.1...v1.0.2) (2021-12-01)
 
 ### Bug Fixes
