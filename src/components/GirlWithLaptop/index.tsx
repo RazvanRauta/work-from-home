@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import React from 'react';
 
-export default function GirlWithLaptop(): ReactElement {
+export default React.memo(function GirlWithLaptop(): ReactElement {
   return (
     <div className='flex flex-col-reverse justify-between items-center p-2 lg:flex-row'>
       <h2 className='text-[#22577a] py-3 max-w-xs text-2xl font-semibold tracking-normal leading-6 text-center lg:leading-[55px] lg:text-5xl'>
@@ -248,4 +248,4 @@ export default function GirlWithLaptop(): ReactElement {
       </svg>
     </div>
   );
-}
+});

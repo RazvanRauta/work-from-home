@@ -8,6 +8,7 @@ import flatten from 'lodash/flatten';
 import uniq from 'lodash/uniq';
 import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -48,23 +49,24 @@ export default function GameBoard(): ReactElement {
     useState<Array<number[]>>([]);
   const [isWinner, setIsWinner] = useState<boolean>(false);
 
-  const generateTiles = () => {
+  const initializeRef = useRef<boolean>(false);
+
+  const generateTiles = useCallback(() => {
     const randomTiles = insertFreeTile(shuffleTiles(tiles), 12, freeTile);
     setShuffledTiles([...randomTiles]);
     setWinningCombinations(generatePossibleWinningCombinations(randomTiles));
-  };
-  const initializeRef = useRef<boolean>(false);
+  }, []);
 
   useEffect(() => {
     generateTiles();
-  }, []);
+  }, [generateTiles]);
 
-  const handleGameReset = () => {
+  const handleGameReset = useCallback(() => {
     generateTiles();
     setIsWinner(false);
     setPlayerSelectedTiles([freeTile.id]);
     setPreviousWinningCombinations([]);
-  };
+  }, [generateTiles]);
 
   useEffect(() => {
     if (initializeRef.current) {
@@ -75,9 +77,29 @@ export default function GameBoard(): ReactElement {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [previousWinningCombinations]);
 
-  const handleModalClose = () => {
+  const handleModalClose = useCallback(() => {
     setIsWinner(false);
-  };
+  }, []);
+
+  const checkValidCombination = useMemo(
+    () => (currentPlayerSelectedValues: number[]) => {
+      let itsBingo = false;
+      const wins: number[][] = [];
+      winningCombinations.forEach((combination) => {
+        itsBingo = combination.every((tileId) =>
+          currentPlayerSelectedValues.includes(tileId)
+        );
+        if (itsBingo) {
+          wins.push(combination);
+        }
+      });
+
+      setPreviousWinningCombinations(wins);
+      setIsWinner(wins.length > previousWinningCombinations.length);
+    },
+    [previousWinningCombinations.length, winningCombinations]
+  );
+
   // handle users click on tile
   const handleTileChecked = (tileId: number, value: boolean) => {
     const updatedTiles = [...shuffledTiles];
@@ -108,32 +130,19 @@ export default function GameBoard(): ReactElement {
     setShuffledTiles(updatedTiles);
   };
 
-  const checkValidCombination = (currentPlayerSelectedValues: number[]) => {
-    let itsBingo = false;
-    const wins: number[][] = [];
-    winningCombinations.forEach((combination) => {
-      itsBingo = combination.every((tileId) =>
-        currentPlayerSelectedValues.includes(tileId)
-      );
-      if (itsBingo) {
-        wins.push(combination);
-      }
-    });
+  const updateTilesStatus = useMemo(
+    () => (prevWinsCombinations: Array<number[]>) => {
+      const updatedTiles = [...shuffledTiles];
 
-    setPreviousWinningCombinations(wins);
-    setIsWinner(wins.length > previousWinningCombinations.length);
-  };
+      const previousWinningTiles = uniq(flatten(prevWinsCombinations));
 
-  const updateTilesStatus = (prevWinsCombinations: Array<number[]>) => {
-    const updatedTiles = [...shuffledTiles];
-
-    const previousWinningTiles = uniq(flatten(prevWinsCombinations));
-
-    updatedTiles.forEach((tile) => {
-      tile.isPreviousWin = previousWinningTiles.includes(tile.id);
-    });
-    setShuffledTiles(updatedTiles);
-  };
+      updatedTiles.forEach((tile) => {
+        tile.isPreviousWin = previousWinningTiles.includes(tile.id);
+      });
+      setShuffledTiles(updatedTiles);
+    },
+    [shuffledTiles]
+  );
 
   return (
     <div className='bg-[#f0f8fd] w-[90vw] flex relative z-10 flex-col justify-between mx-auto mt-28 max-w-sm h-auto rounded-lg lg:h-[715px] lg:max-w-2xl'>
@@ -143,11 +152,13 @@ export default function GameBoard(): ReactElement {
           <Tile key={tile.id} handleChecked={handleTileChecked} {...tile} />
         ))}
       </div>
-      <WinningDialog
-        isOpen={isWinner}
-        handleClose={handleModalClose}
-        handleGameReset={handleGameReset}
-      />
+      {isWinner && (
+        <WinningDialog
+          isOpen={isWinner}
+          handleClose={handleModalClose}
+          handleGameReset={handleGameReset}
+        />
+      )}
     </div>
   );
 }
