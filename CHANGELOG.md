@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/RazvanRauta/work-from-home/compare/v1.1.0...v1.2.0) (2021-12-06)
+
+
+### Features
+
+* **redux:** moved game state to redux ([af28bcd](https://github.com/RazvanRauta/work-from-home/commit/af28bcdeaf5680b8d39b54a99c699f9dd02d14f8))
+
 ## [1.1.0](https://github.com/RazvanRauta/work-from-home/compare/v1.0.2...v1.1.0) (2021-12-02)
 
 ### Features
