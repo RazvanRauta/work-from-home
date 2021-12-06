@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import React from 'react';
 import ConfettiCanvas from 'react-confetti-canvas';
 
-export default function BingoSticker(): ReactElement {
+export default React.memo(function BingoSticker(): ReactElement {
   return (
     <div className='flex justify-center items-center'>
       <div className='absolute top-0 left-0 w-full h-full'>
@@ -398,4 +398,4 @@ export default function BingoSticker(): ReactElement {
       </svg>
     </div>
   );
-}
+});

@@ -18,7 +18,7 @@ interface TileProps {
   handleChecked: (id: number, value: boolean) => void;
 }
 
-export default function Tile({
+export default React.memo(function Tile({
   id,
   message,
   isChecked,
@@ -53,4 +53,4 @@ export default function Tile({
       </p>
     </div>
   );
-}
+});

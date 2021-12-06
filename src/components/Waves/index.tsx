@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import React from 'react';
 
-export default function Waves(): ReactElement {
+export default React.memo(function Waves(): ReactElement {
   return (
     <div className='waves'>
       <svg
@@ -27,4 +27,4 @@ export default function Waves(): ReactElement {
       </svg>
     </div>
   );
-}
+});

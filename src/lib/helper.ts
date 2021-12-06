@@ -21,11 +21,7 @@ export const shuffleTiles = (arr: Tiles): Tiles => {
     arr[randomIndex] = tempTile;
   }
 
-  return arr.map((el) => {
-    el.isChecked = false;
-    el.isPreviousWin = false;
-    return el;
-  });
+  return arr;
 };
 
 export const updatePreviousWinsAndSelectedTiles = (

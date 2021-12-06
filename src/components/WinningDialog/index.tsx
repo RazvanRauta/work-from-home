@@ -7,7 +7,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
-import { Fragment } from 'react';
+import { Fragment, memo } from 'react';
 
 import Spinner from '../Spinner';
 
@@ -22,7 +22,7 @@ interface WinningDialogProps {
   isOpen: boolean;
 }
 
-export default function WinningDialog({
+export default memo(function WinningDialog({
   handleClose,
   handleGameReset,
   isOpen,
@@ -90,4 +90,4 @@ export default function WinningDialog({
       </Dialog>
     </Transition>
   );
-}
+});
