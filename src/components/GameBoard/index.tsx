@@ -4,29 +4,25 @@
  *  Time: 16:48
  */
 
-import flatten from 'lodash/flatten';
-import uniq from 'lodash/uniq';
 import dynamic from 'next/dynamic';
 import type { ReactElement } from 'react';
-import { useCallback, useMemo } from 'react';
-import { useRef } from 'react';
+import { useCallback } from 'react';
 import { useEffect } from 'react';
-import { useState } from 'react';
 import React from 'react';
 
-import {
-  generatePossibleWinningCombinations,
-  insertFreeTile,
-  shuffleTiles,
-  updatePreviousWinsAndSelectedTiles,
-} from '@/lib/helper';
+import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 
-import { freeTile, tiles } from '@/constants';
+import {
+  initGame,
+  resetGame,
+  selectIsWinner,
+  selectShuffledTiles,
+  setIsWinner,
+  updateTileStatus,
+} from '@/features/game/gameSlice';
 
 import Spinner from '../Spinner';
 import Tile from '../Tile';
-
-import type { Tiles } from '@/types';
 
 const WinningDialog = dynamic(() => import('../WinningDialog'), {
   ssr: false,
@@ -38,110 +34,33 @@ const GirlWithLaptop = dynamic(() => import('../GirlWithLaptop'), {
 });
 
 export default function GameBoard(): ReactElement {
-  const [shuffledTiles, setShuffledTiles] = useState<Tiles>([]);
-  const [winningCombinations, setWinningCombinations] = useState<
-    Array<number[]>
-  >([]);
-  const [playerSelectedTiles, setPlayerSelectedTiles] = useState<number[]>([
-    freeTile.id,
-  ]);
-  const [previousWinningCombinations, setPreviousWinningCombinations] =
-    useState<Array<number[]>>([]);
-  const [isWinner, setIsWinner] = useState<boolean>(false);
+  const shuffledTiles = useAppSelector(selectShuffledTiles);
+  const isWinner = useAppSelector(selectIsWinner);
+  const dispatch = useAppDispatch();
 
-  const initializeRef = useRef<boolean>(false);
-
-  const generateTiles = useCallback(() => {
-    const randomTiles = insertFreeTile(shuffleTiles(tiles), 12, freeTile);
-    setShuffledTiles([...randomTiles]);
-    setWinningCombinations(generatePossibleWinningCombinations(randomTiles));
-  }, []);
-
-  useEffect(() => {
-    generateTiles();
-  }, [generateTiles]);
-
-  const handleGameReset = useCallback(() => {
-    generateTiles();
-    setIsWinner(false);
-    setPlayerSelectedTiles([freeTile.id]);
-    setPreviousWinningCombinations([]);
-  }, [generateTiles]);
-
-  useEffect(() => {
-    if (initializeRef.current) {
-      updateTilesStatus(previousWinningCombinations);
-    } else {
-      initializeRef.current = true;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [previousWinningCombinations]);
-
-  const handleModalClose = useCallback(() => {
-    setIsWinner(false);
-  }, []);
-
-  const checkValidCombination = useMemo(
-    () => (currentPlayerSelectedValues: number[]) => {
-      let itsBingo = false;
-      const wins: number[][] = [];
-      winningCombinations.forEach((combination) => {
-        itsBingo = combination.every((tileId) =>
-          currentPlayerSelectedValues.includes(tileId)
-        );
-        if (itsBingo) {
-          wins.push(combination);
-        }
-      });
-
-      setPreviousWinningCombinations(wins);
-      setIsWinner(wins.length > previousWinningCombinations.length);
-    },
-    [previousWinningCombinations.length, winningCombinations]
-  );
-
-  // handle users click on tile
-  const handleTileChecked = (tileId: number, value: boolean) => {
-    const updatedTiles = [...shuffledTiles];
-    const checkedTileIndex = updatedTiles.findIndex((el) => el.id === tileId);
-    const updatedTile = updatedTiles[checkedTileIndex];
-
-    updatedTile.isChecked = value;
-
-    if (updatedTile.isChecked) {
-      const updatedPlayerSelectedTiles = [...playerSelectedTiles];
-      if (!updatedPlayerSelectedTiles.includes(updatedTile.id)) {
-        updatedPlayerSelectedTiles.push(updatedTiles[checkedTileIndex].id);
-      }
-      checkValidCombination(updatedPlayerSelectedTiles);
-      setPlayerSelectedTiles(updatedPlayerSelectedTiles);
-    } else if (!updatedTile.isChecked) {
-      const { updatePreviousWins, updatedPlayerSelectedTiles } =
-        updatePreviousWinsAndSelectedTiles(
-          previousWinningCombinations,
-          updatedTile,
-          playerSelectedTiles
-        );
-
-      setPreviousWinningCombinations(updatePreviousWins);
-      setPlayerSelectedTiles(updatedPlayerSelectedTiles);
-    }
-
-    setShuffledTiles(updatedTiles);
+  const generateTiles = () => {
+    dispatch(initGame());
   };
 
-  const updateTilesStatus = useMemo(
-    () => (prevWinsCombinations: Array<number[]>) => {
-      const updatedTiles = [...shuffledTiles];
+  useEffect(() => {
+    generateTiles();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-      const previousWinningTiles = uniq(flatten(prevWinsCombinations));
+  const handleGameReset = useCallback(() => {
+    dispatch(resetGame());
+  }, [dispatch]);
 
-      updatedTiles.forEach((tile) => {
-        tile.isPreviousWin = previousWinningTiles.includes(tile.id);
-      });
-      setShuffledTiles(updatedTiles);
+  const handleModalClose = useCallback(() => {
+    dispatch(setIsWinner(false));
+  }, [dispatch]);
+
+  // handle users click on tile
+  const handleTileChecked = useCallback(
+    (tileId: number, status: boolean) => {
+      dispatch(updateTileStatus({ status, tileId }));
     },
-    [shuffledTiles]
+    [dispatch]
   );
 
   return (
