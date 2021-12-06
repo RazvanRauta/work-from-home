@@ -4,8 +4,8 @@
 
 ### Prerequisites
 
-* NodeJS
-* Yarn
+- NodeJS
+- Yarn
 
 ### Clone this repo
 
