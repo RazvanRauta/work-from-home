@@ -116,6 +116,16 @@
       );
   }
 
+  .blurry-gradient-chrome {
+    background-image: url('/images/blurry-gradient.png'),
+      linear-gradient(
+        64deg,
+        rgba(74, 162, 138, 1) 0%,
+        rgba(176, 179, 124, 1) 85%,
+        rgba(186, 182, 122, 1) 100%
+      );
+  }
+
   .free-tile {
     background-image: url('/images/free-tile.svg');
     width: 100%;
