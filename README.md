@@ -1,5 +1,26 @@
 # Work From Home
 
+## Install and Run
+
+### Prerequisites
+
+* NodeJS
+* Yarn
+
+### Clone this repo
+
+`git clone git@github.com:RazvanRauta/work-from-home.git`
+
+### Install dependencies
+
+`cd work-from-home && yarn`
+
+### Run project locally
+
+In the root folder run:
+
+`yarn dev`
+
 ## Usage Guide
 
 ### 1. Change defaults
